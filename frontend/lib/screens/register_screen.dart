@@ -33,10 +33,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       setState(() => _isLoading = true);
 
       // Simulate network request
-      Future.delayed(const Duration(milliseconds: 800), () {
+      Future.delayed(const Duration(milliseconds: 800), () async {
         if (!mounted) return;
         final appState = Provider.of<AppState>(context, listen: false);
-        final success = appState.registerUser(
+        final success = await appState.registerUser(
           _nameController.text.trim(),
           _emailController.text.trim(),
           _passwordController.text,
