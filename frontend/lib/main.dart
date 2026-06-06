@@ -1,3 +1,4 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter/material.dart';
 import 'provider.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +8,14 @@ import 'screens/history_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/login_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: 'https://znlvldmdplbltjsepqga.supabase.co',
+    anonKey: 'sb_publishable_DGlXpkicWjij5i836CebeA_J_RS_GXk',
+  );
+
   runApp(const MyApp());
 }
 
