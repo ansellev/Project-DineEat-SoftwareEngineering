@@ -29,10 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() => _isLoading = true);
       
       // Simulate delay
-      Future.delayed(const Duration(milliseconds: 800), () {
+      Future.delayed(const Duration(milliseconds: 800), () async {
         if (!mounted) return;
         final appState = Provider.of<AppState>(context, listen: false);
-        final success = appState.loginUser(
+        final success = await appState.loginUser(
           _emailController.text.trim(),
           _passwordController.text,
         );
